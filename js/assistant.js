@@ -64,33 +64,93 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var HelloWorld = function (_React$Component) {
-	  _inherits(HelloWorld, _React$Component);
+	var TypeSelection = function (_React$Component) {
+	  _inherits(TypeSelection, _React$Component);
 
-	  function HelloWorld() {
-	    _classCallCheck(this, HelloWorld);
+	  function TypeSelection(props) {
+	    _classCallCheck(this, TypeSelection);
 
-	    return _possibleConstructorReturn(this, (HelloWorld.__proto__ || Object.getPrototypeOf(HelloWorld)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (TypeSelection.__proto__ || Object.getPrototypeOf(TypeSelection)).call(this, props));
+
+	    _this.state = {
+	      types: [],
+	      data_url: 'http://codedtrueapi.azurewebsites.net/api/bloodtypes'
+	    };
+	    return _this;
 	  }
 
-	  _createClass(HelloWorld, [{
+	  _createClass(TypeSelection, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      fetch(this.state.data_url, {
+	        method: 'get'
+	      }).then(function (response) {
+	        return response.json();
+	      }).then(function (types) {
+	        return _this2.setState({ types: types });
+	      });
+	      console.log(this.state.types);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'h1',
+	        'div',
 	        null,
 	        'Hello my name is ',
 	        this.props.name
 	      );
 	    }
+	  }, {
+	    key: 'getBloodTypes',
+	    value: function getBloodTypes() {
+	      var bloodtypeHTML = function bloodtypeHTML(bloodtype) {
+	        return '<option value="' + bloodtype.Id + '">' + bloodtype.Types + '</option>';
+	      };
+
+	      fetch(url, {
+	        method: 'get'
+	      }).then(function (response) {
+	        return response.json();
+	      }).then(function (json) {
+
+	        var start = '<select name="select">';
+	        var end = '</select>';
+	        var html = json.map(bloodtypeHTML).join('');
+	        var bloodtypeList = document.getElementById("bloodtype_list");
+	        bloodtypeList.innerHTML = start + html + end;
+	        new Notification(document.title, {
+	          body: 'Blood Types loaded!'
+	        });
+	      });
+	    }
 	  }]);
 
-	  return HelloWorld;
+	  return TypeSelection;
 	}(_react2.default.Component);
 
-	_reactDom2.default.render(_react2.default.createElement(HelloWorld, {
-	  id: 'test',
-	  name: 'dane' }), document.getElementById('react-root'));
+	_reactDom2.default.render(_react2.default.createElement(
+	  'div',
+	  { className: 'container' },
+	  _react2.default.createElement(
+	    'h3',
+	    null,
+	    'Please select a blood type:'
+	  ),
+	  _react2.default.createElement(
+	    'select',
+	    { 'class': 'form-control' },
+	    undefined.state.types.map(function (bloodtype) {
+	      return _react2.default.createElement(
+	        'option',
+	        { value: bloodtype.Id },
+	        bloodtype.Types
+	      );
+	    })
+	  )
+	), document.getElementById('react-root'));
 
 /***/ },
 /* 1 */

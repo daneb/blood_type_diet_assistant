@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "webpack-dev-server --inline --content-base .",
-    "build-app": "./node_modules/.bin/babel ./jsx -d ./js"
+    "server": "webpack-dev-server --inline --content-base ",
+    "build": "webpack"
   },
   "babel": {
     "presets": [
