@@ -83,8 +83,7 @@
 	    var _this = _possibleConstructorReturn(this, (TypeSelection.__proto__ || Object.getPrototypeOf(TypeSelection)).call(this, props));
 
 	    _this.state = {
-	      types: [],
-	      data_url: 'http://codedtrueapi.azurewebsites.net/api/bloodtypes'
+	      types: []
 	    };
 	    return _this;
 	  }
@@ -94,7 +93,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      fetch(this.state.data_url, {
+	      fetch(this.props.data_url, {
 	        method: 'get'
 	      }).then(function (response) {
 	        return response.json();
@@ -4347,7 +4346,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var dataUrl = 'http://codedtrueapi.azurewebsites.net/api/bloodtypes';
-	_reactDom2.default.render(_react2.default.createElement(_type_selection2.default, { 'data-url': dataUrl }), document.getElementById('content'));
+	_reactDom2.default.render(_react2.default.createElement(_type_selection2.default, { data_url: dataUrl }), document.getElementById('content'));
 
 /***/ },
 /* 36 */

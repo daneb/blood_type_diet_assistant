@@ -4,6 +4,6 @@ import TypeSelection from './type_selection.jsx';
 
 let dataUrl = 'http://codedtrueapi.azurewebsites.net/api/bloodtypes'
 ReactDOM.render(
-    <TypeSelection data-url={dataUrl}/>,
+    <TypeSelection data_url={dataUrl}/>,
   document.getElementById('content')
 )

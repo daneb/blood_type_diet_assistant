@@ -4,12 +4,11 @@ export default class TypeSelection extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      types: [],
-      data_url: 'http://codedtrueapi.azurewebsites.net/api/bloodtypes'
+      types: []
     }
   }
   componentDidMount() {
-    fetch(this.state.data_url, {
+    fetch(this.props.data_url, {
       method: 'get'
     }).then((response)=>response.json())
       .then((types)=>this.setState({types: types}))
