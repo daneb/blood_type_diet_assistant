@@ -82,8 +82,10 @@
 
 	    var _this = _possibleConstructorReturn(this, (TypeSelection.__proto__ || Object.getPrototypeOf(TypeSelection)).call(this, props));
 
+	    _this.onChange = _this.onChange.bind(_this);
 	    _this.state = {
-	      types: []
+	      types: [],
+	      value: ''
 	    };
 	    return _this;
 	  }
@@ -100,7 +102,11 @@
 	      }).then(function (types) {
 	        return _this2.setState({ types: types });
 	      });
-	      console.log(this.state.types);
+	    }
+	  }, {
+	    key: 'onChange',
+	    value: function onChange(event) {
+	      this.setState({ value: event.target.value });
 	    }
 	  }, {
 	    key: 'render',
@@ -115,7 +121,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'select',
-	          { className: 'form-control' },
+	          { className: 'form-control', onChange: this.onChange, value: this.state.value },
 	          this.state.types.map(function (bloodtype, i) {
 	            return _react2.default.createElement(
 	              'option',
