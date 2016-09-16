@@ -1,10 +1,10 @@
 // webpack.config.js
+var path = require('path')
 var webpack = require('webpack');
 
 module.exports = {
   context: __dirname,
-  entry: './jsx/type_selection.jsx',
-
+  entry: './jsx/app.jsx',
   output: {
     filename: 'assistant.js',
     path: __dirname + '/js/'
@@ -12,7 +12,18 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
+      { 
+        test: /\.jsx?$/, 
+        loader: 'babel-loader',
+        exclude: /node_modules/, 
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   }
+
 };
