@@ -1,4 +1,5 @@
 import React from 'react';
+import BeneficialCategory from './beneficial_category.jsx';
 
 export default class TypeSelection extends React.Component {
   constructor(props) {
@@ -26,6 +27,8 @@ export default class TypeSelection extends React.Component {
         <option value={bloodtype.Id} key={i}>{bloodtype.Types}</option>
       )}
     </select>
+    <br/>
+    <BeneficialCategory/>
   </div>
   }
 }
