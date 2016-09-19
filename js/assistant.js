@@ -481,9 +481,9 @@
 	      this.setState({ type_value: syntheticEvent.target.value });
 	    }
 	  }, {
-	    key: 'onChangeCapture',
-	    value: function onChangeCapture(syntheticEvent) {
-	      console.log("Got here");
+	    key: 'onCheckboxChange',
+	    value: function onCheckboxChange(syntheticEvent) {
+	      console.log("It worked!");
 	    }
 	  }, {
 	    key: 'render',
@@ -534,7 +534,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'column is-4' },
-	            _react2.default.createElement(_beneficial_category2.default, null)
+	            _react2.default.createElement(_beneficial_category2.default, { handler: this.onCheckboxChange })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -4785,10 +4785,10 @@
 	var BeneficialCategory = function (_React$Component) {
 	  _inherits(BeneficialCategory, _React$Component);
 
-	  function BeneficialCategory() {
+	  function BeneficialCategory(props) {
 	    _classCallCheck(this, BeneficialCategory);
 
-	    return _possibleConstructorReturn(this, (BeneficialCategory.__proto__ || Object.getPrototypeOf(BeneficialCategory)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (BeneficialCategory.__proto__ || Object.getPrototypeOf(BeneficialCategory)).call(this, props));
 	  }
 
 	  _createClass(BeneficialCategory, [{
@@ -4866,7 +4866,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'column' },
-	            _react2.default.createElement(_checkbox2.default, { defaultValue: "avoid" })
+	            _react2.default.createElement(_checkbox2.default, { defaultValue: "avoid", handler: this.props.handler })
 	          )
 	        )
 	      );
@@ -4930,7 +4930,11 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('input', { type: 'checkbox', checked: this.state.isChecked, onChange: this.onChange, value: this.state.value });
+	      return _react2.default.createElement('input', { type: 'checkbox',
+	        checked: this.state.isChecked,
+	        onChangeCapture: this.props.handler,
+	        onChange: this.onChange,
+	        value: this.state.value });
 	    }
 	  }]);
 

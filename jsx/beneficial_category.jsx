@@ -2,6 +2,9 @@ import React from 'react';
 import Checkbox from './checkbox.jsx';
 
 export default class BeneficialCategory extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
    return <div className='beneficials notification is-primary'> 
     <div className="columns"> 
@@ -18,7 +21,7 @@ export default class BeneficialCategory extends React.Component {
     </div>
      <div className="columns"> 
       <div className="column"><label className="avoid">Avoid</label></div>
-       <div className="column"><Checkbox defaultValue={"avoid"} /></div>
+       <div className="column"><Checkbox defaultValue={"avoid"} handler={this.props.handler} /></div>
     </div>
    </div>
   }

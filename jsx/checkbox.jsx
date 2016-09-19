@@ -11,9 +11,13 @@ export default class CheckBox extends React.Component {
     this.onChange = this.onChange.bind(this)
   }
   onChange(syntheticEvent) {
-    this.setState({isChecked: !this.state.isChecked }); 
+    this.setState({isChecked: !this.state.isChecked });
   }
   render() {
-    return <input type="checkbox" checked={this.state.isChecked} onChange={this.onChange} value={this.state.value} />
+    return <input type="checkbox"
+     checked={this.state.isChecked} 
+     onChangeCapture={this.props.handler}
+     onChange={this.onChange} 
+     value={this.state.value} />
   }
 }

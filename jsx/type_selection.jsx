@@ -23,8 +23,8 @@ export default class TypeSelection extends React.Component {
   onChange(syntheticEvent) {
     this.setState({type_value: syntheticEvent.target.value})
   }
-  onChangeCapture(syntheticEvent) {
-    console.log("Got here")
+  onCheckboxChange(syntheticEvent) {
+    console.log("It worked!")
   }
   render() {
   return <div className="container">
@@ -46,7 +46,7 @@ export default class TypeSelection extends React.Component {
     </div>
     <div className="columns">
       <div className="column is-2"></div>
-      <div className="column is-4"><BeneficialCategory/></div>
+      <div className="column is-4"><BeneficialCategory handler={this.onCheckboxChange} /></div>
       <div className="column is-4"><FoodCategory/></div>
       <div className="column is-2"></div>
     </div>
