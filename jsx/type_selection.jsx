@@ -1,6 +1,7 @@
 import React from 'react';
 import BeneficialCategory from './beneficial_category.jsx';
 import FoodCategory from './food_category.jsx';
+import SubmissionButton from './submission_button.jsx';
 
 export default class TypeSelection extends React.Component {
   constructor(props) {
@@ -8,7 +9,9 @@ export default class TypeSelection extends React.Component {
     this.onChange = this.onChange.bind(this)
     this.state = {
       types: [],
-      value: ''
+      type_value: '',
+      food_categories: [],
+      beneficials: []
     }
   }
   componentDidMount() {
@@ -17,8 +20,11 @@ export default class TypeSelection extends React.Component {
     }).then((response)=>response.json())
       .then((types)=>this.setState({types: types}))
   }
-  onChange(event) {
-    this.setState({value: event.target.value})
+  onChange(syntheticEvent) {
+    this.setState({type_value: syntheticEvent.target.value})
+  }
+  onChangeCapture(syntheticEvent) {
+    console.log("Got here")
   }
   render() {
   return <div className="container">
@@ -43,6 +49,12 @@ export default class TypeSelection extends React.Component {
       <div className="column is-4"><BeneficialCategory/></div>
       <div className="column is-4"><FoodCategory/></div>
       <div className="column is-2"></div>
+    </div>
+    <div className="columns">
+      <div className="column is-2"></div>
+      <div className="column is-2">
+        <SubmissionButton/>
+      </div>
     </div>
   </div>
   }
