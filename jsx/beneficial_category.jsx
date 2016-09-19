@@ -17,7 +17,7 @@ export default class BeneficialCategory extends React.Component {
     </div>
      <div className="columns"> 
        <div className="column"><label className="irregular">Irregular</label></div>
-       <div className="column"><input type="checkbox" data-id="irregular" value="irregular"/></div>
+       <div className="column"><Checkbox defaultValue={"irregular"} handler={this.props.handler} /></div>
     </div>
      <div className="columns"> 
       <div className="column"><label className="avoid">Avoid</label></div>

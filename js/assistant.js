@@ -4848,7 +4848,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'column' },
-	            _react2.default.createElement('input', { type: 'checkbox', 'data-id': 'irregular', value: 'irregular' })
+	            _react2.default.createElement(_checkbox2.default, { defaultValue: "irregular", handler: this.props.handler })
 	          )
 	        ),
 	        _react2.default.createElement(
