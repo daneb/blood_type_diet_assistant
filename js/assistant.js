@@ -54,11 +54,23 @@
 
 	__webpack_require__(41);
 
-	__webpack_require__(42);
+	var _submission_button = __webpack_require__(42);
+
+	var _submission_button2 = _interopRequireDefault(_submission_button);
 
 	__webpack_require__(40);
 
 	__webpack_require__(43);
+
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(44);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	(0, _reactDom.render)(_react2.default.createElement(_submission_button2.default, null), document.getElementById('content'));
 
 /***/ },
 /* 1 */
@@ -486,71 +498,80 @@
 	      console.log("It worked!");
 	    }
 	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(syntheticEvent) {
+	      console.log("It posted!");
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'columns' },
+	          'form',
+	          { className: 'assistantForm', onSubmit: this.handleSubmit },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'column is-half is-offset-one-quarter notification is-info' },
+	            { className: 'columns' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'columns' },
+	              { className: 'column is-half is-offset-one-quarter notification is-info' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'column is-half' },
+	                { className: 'columns' },
 	                _react2.default.createElement(
-	                  'h3',
-	                  null,
-	                  'Please select a blood type:'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'column is-half' },
+	                  'div',
+	                  { className: 'column is-half' },
+	                  _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'Please select a blood type:'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  'select',
-	                  { className: 'form-control', onChange: this.onChange, value: this.state.value },
-	                  this.state.types.map(function (bloodtype, i) {
-	                    return _react2.default.createElement(
-	                      'option',
-	                      { value: bloodtype.Id, key: i },
-	                      bloodtype.Types
-	                    );
-	                  })
+	                  'div',
+	                  { className: 'column is-half' },
+	                  _react2.default.createElement(
+	                    'select',
+	                    { className: 'form-control', onChange: this.onChange, value: this.state.value },
+	                    this.state.types.map(function (bloodtype, i) {
+	                      return _react2.default.createElement(
+	                        'option',
+	                        { value: bloodtype.Id, key: i },
+	                        bloodtype.Types
+	                      );
+	                    })
+	                  )
 	                )
 	              )
 	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'columns' },
-	          _react2.default.createElement('div', { className: 'column is-2' }),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'column is-4' },
-	            _react2.default.createElement(_beneficial_category2.default, { handler: this.onCheckboxChange })
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'column is-4' },
-	            _react2.default.createElement(_food_category2.default, null)
+	            { className: 'columns' },
+	            _react2.default.createElement('div', { className: 'column is-2' }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'column is-4' },
+	              _react2.default.createElement(_beneficial_category2.default, { handler: this.onCheckboxChange })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'column is-4' },
+	              _react2.default.createElement(_food_category2.default, null)
+	            ),
+	            _react2.default.createElement('div', { className: 'column is-2' })
 	          ),
-	          _react2.default.createElement('div', { className: 'column is-2' })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'columns' },
-	          _react2.default.createElement('div', { className: 'column is-2' }),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'column is-2' },
-	            _react2.default.createElement(_submission_button2.default, null)
+	            { className: 'columns' },
+	            _react2.default.createElement('div', { className: 'column is-2' }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'column is-2' },
+	              _react2.default.createElement('input', { type: 'submit', className: 'button is-danger', value: 'Submit' })
+	            )
 	          )
 	        )
 	      );
