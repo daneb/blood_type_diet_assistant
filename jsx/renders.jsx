@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TypeSelection from './type_selection.jsx';
+import TypeSelection from './Landing.jsx';
 
 let dataUrl = 'http://codedtrueapi.azurewebsites.net/api/bloodtypes'
 ReactDOM.render(
