@@ -9,11 +9,11 @@ export default class BeneficialCategory extends React.Component {
    return <div className='beneficials notification is-primary'> 
     <div className="columns"> 
        <div className="column"><label htmlFor="super">Super</label></div>
-       <div className="column"><input type="checkbox" data-id="super" value="super"/></div>
+       <div className="column"><Checkbox defaultValue={"super"} value={this.props.handler}/></div>
     </div>
      <div className="columns"> 
        <div className="column"><label className="beneficial">Beneficial</label></div>
-       <div className="column"><input type="checkbox" data-id="beneficial" value="beneficial"/></div>
+       <div className="column"><Checkbox defaultValue={"beneficial"} value={this.props.handler}/></div>
     </div>
      <div className="columns"> 
        <div className="column"><label className="irregular">Irregular</label></div>

@@ -1,23 +1,17 @@
 import '../node_modules/bulma/css/bulma.css'
-import './Landing.jsx'
+import React from 'react'
+import { render } from 'react-dom'
+import TypeSelection from './mainform.jsx';
+
 import './beneficial_category.jsx'
 import './food_category.jsx'
 import './submission_button.jsx'
 import './checkbox.jsx'
-import './renders.jsx'
+import './mainform.jsx'
 
-import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, hashHistory } from 'react-router'
-import App from './Landing'
-
+let dataUrl = 'http://codedtrueapi.azurewebsites.net/api/bloodtypes'
 render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}/>
-    <Route path="/repos" component={Repos}/>
-    <Route path="/about" component={About}/>
-  </Router>
-  , document.getElementById('content'))
-
-
+    <TypeSelection data_url={dataUrl}/>,
+  document.getElementById('content')
+)
 

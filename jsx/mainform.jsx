@@ -26,12 +26,8 @@ export default class TypeSelection extends React.Component {
   onCheckboxChange(syntheticEvent) {
     console.log("It worked!")
   }
-  handleSubmit(syntheticEvent) {
-    console.log("It posted!")
-  }
   render() {
-  return <div className="container">
-    <form className="assistantForm" onSubmit={this.handleSubmit}>
+  return <div className="container">    
     <div className="columns">
       <div className="column is-half is-offset-one-quarter notification is-info">
         <div className="columns">
@@ -48,6 +44,7 @@ export default class TypeSelection extends React.Component {
         </div>
       </div>
     </div>
+    <form action='/results' className="assistantForm" >
     <div className="columns">
       <div className="column is-2"></div>
       <div className="column is-4"><BeneficialCategory handler={this.onCheckboxChange} /></div>
@@ -57,7 +54,7 @@ export default class TypeSelection extends React.Component {
     <div className="columns">
       <div className="column is-2"></div>
       <div className="column is-2">
-        <input type='submit' className='button is-danger' value='Submit'/>
+        <button type='submit' className='button is-danger'>Submit</button>
       </div>
     </div>
     </form>
