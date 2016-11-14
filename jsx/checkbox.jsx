@@ -1,5 +1,4 @@
 import React from 'react';
-import Checkbox from './checkbox.jsx';
 
 export default class CheckBox extends React.Component {
   constructor(props) {
@@ -16,7 +15,6 @@ export default class CheckBox extends React.Component {
   render() {
     return <input type="checkbox"
      checked={this.state.isChecked} 
-     onChangeCapture={this.props.handler}
      onChange={this.onChange} 
      value={this.state.value} />
   }

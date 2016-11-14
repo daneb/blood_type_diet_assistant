@@ -3,8 +3,7 @@ var path = require('path')
 var webpack = require('webpack');
 
 module.exports = {
-  context: __dirname,
-  entry: './jsx/app.jsx',
+  entry: './index.js',
   output: {
     filename: 'assistant.js',
     path: __dirname + '/js/'

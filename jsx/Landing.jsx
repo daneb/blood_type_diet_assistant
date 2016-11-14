@@ -7,24 +7,33 @@ export default class TypeSelection extends React.Component {
   constructor(props) {
     super(props)
     this.onChange = this.onChange.bind(this)
+    this.onCheckboxChange = this.onCheckboxChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       types: [],
       type_value: '',
       food_categories: [],
-      beneficials: []
+      beneficials: [],
+      checked_values: []
     }
   }
   componentDidMount() {
-    fetch(this.props.data_url, {
+    fetch('http://codedtrueapi.azurewebsites.net/api/bloodtypes', {
       method: 'get'
     }).then((response)=>response.json())
       .then((types)=>this.setState({types: types}))
+  }
+  handleSubmit() {
+    fetch('/result', {method: 'POST', body: JSON.stringify(this.state)})
+      .then((response)=>{return response.json()})
+      .then((data)=>{console.log('Submitted: ', data)})
   }
   onChange(syntheticEvent) {
     this.setState({type_value: syntheticEvent.target.value})
   }
   onCheckboxChange(syntheticEvent) {
-    console.log("It worked!")
+    this.setState({checked_values: this.state.checked_values.concat(syntheticEvent.target.value)})
+    console.log(this.state.checked_values)
   }
   render() {
   return <div className="container">    
@@ -44,11 +53,11 @@ export default class TypeSelection extends React.Component {
         </div>
       </div>
     </div>
-    <form action='/results' className="assistantForm" >
+    <form className="assistantForm" onSubmit={this.handleSubmit} >
     <div className="columns">
       <div className="column is-2"></div>
-      <div className="column is-4"><BeneficialCategory handler={this.onCheckboxChange} /></div>
-      <div className="column is-4"><FoodCategory/></div>
+      <div className="column is-4"><BeneficialCategory onCheckboxChange={this.props.checked_values}/></div>
+      <div className="column is-4"><FoodCategory onCheckBoxChange={this.props.checked_values}/></div>
       <div className="column is-2"></div>
     </div>
     <div className="columns">
