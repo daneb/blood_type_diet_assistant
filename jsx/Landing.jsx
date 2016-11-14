@@ -2,6 +2,7 @@ import React from 'react';
 import BeneficialCategory from './beneficial_category.jsx';
 import FoodCategory from './food_category.jsx';
 import SubmissionButton from './submission_button.jsx';
+import { Link } from 'react-router'
 
 export default class TypeSelection extends React.Component {
   constructor(props) {
@@ -24,8 +25,9 @@ export default class TypeSelection extends React.Component {
       .then((types)=>this.setState({types: types}))
   }
   handleSubmit() {
-    fetch('/result', {method: 'POST', body: JSON.stringify(this.state)})
-      .then((response)=>{return response.json()})
+    fetch('/result', 
+      {method: 'get'
+    }).then((response)=>{return response.json()})
       .then((data)=>{console.log('Submitted: ', data)})
   }
   onChange(syntheticEvent) {
@@ -67,6 +69,14 @@ export default class TypeSelection extends React.Component {
       </div>
     </div>
     </form>
+     <div>
+        <h1>React Router Tutorial</h1>
+        <ul role="nav">
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/result">Repos</Link></li>
+          <li><Link to="/">Hello</Link></li>
+        </ul>
+      </div>
   </div>
   }
 }

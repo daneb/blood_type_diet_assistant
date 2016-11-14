@@ -27124,6 +27124,8 @@
 
 	var _submission_button2 = _interopRequireDefault(_submission_button);
 
+	var _reactRouter = __webpack_require__(34);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27169,7 +27171,8 @@
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit() {
-	      fetch('/result', { method: 'POST', body: JSON.stringify(this.state) }).then(function (response) {
+	      fetch('/result', { method: 'get'
+	      }).then(function (response) {
 	        return response.json();
 	      }).then(function (data) {
 	        console.log('Submitted: ', data);
@@ -27258,6 +27261,46 @@
 	                'button',
 	                { type: 'submit', className: 'button is-danger' },
 	                'Submit'
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            'React Router Tutorial'
+	          ),
+	          _react2.default.createElement(
+	            'ul',
+	            { role: 'nav' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/about' },
+	                'About'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/result' },
+	                'Repos'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/' },
+	                'Hello'
 	              )
 	            )
 	          )
